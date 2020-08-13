@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/containerItem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingStart="16dp"
+        android:paddingTop="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp">
+
+
+        <ImageView
+            android:id="@+id/imgFavorite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_baseline_star_yellow_50" />
+
+        <ImageView
+            android:id="@+id/imgForks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@+id/imgSubscribe"
+            app:layout_constraintTop_toBottomOf="@+id/txtNumberRatings"
+            app:srcCompat="@drawable/ic_baseline_share_50" />
+
+        <ImageView
+            android:id="@+id/imgSubscribe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/imgForks"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtNumberWatchers"
+            app:srcCompat="@drawable/ic_baseline_book_50" />
+
+        <ImageView
+            android:id="@+id/imgAvatar"
+            android:layout_width="130dip"
+            android:layout_height="130dip"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/txtLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:text="adm"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgAvatar" />
+
+        <TextView
+            android:id="@+id/txtDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            android:text="AAA BB CC"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtLogin" />
+
+        <ImageView
+            android:id="@+id/imgWatchers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toStartOf="@+id/imgRatings"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtDescription"
+            app:srcCompat="@drawable/ic_baseline_visibility_50" />
+
+        <ImageView
+            android:id="@+id/imgRatings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="32dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imgWatchers"
+            app:layout_constraintTop_toBottomOf="@+id/txtDescription"
+            app:srcCompat="@drawable/ic_baseline_star_50" />
+
+        <TextView
+            android:id="@+id/txtNumberWatchers"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="10"
+            app:layout_constraintEnd_toEndOf="@+id/imgWatchers"
+            app:layout_constraintStart_toStartOf="@+id/imgWatchers"
+            app:layout_constraintTop_toBottomOf="@+id/imgWatchers" />
+
+        <TextView
+            android:id="@+id/txtNumberRatings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="10]"
+            app:layout_constraintEnd_toEndOf="@+id/imgRatings"
+            app:layout_constraintStart_toStartOf="@+id/imgRatings"
+            app:layout_constraintTop_toBottomOf="@+id/imgRatings" />
+
+        <TextView
+            android:id="@+id/txtNumberSubscribes"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="10"
+            app:layout_constraintEnd_toEndOf="@+id/imgSubscribe"
+            app:layout_constraintStart_toStartOf="@+id/imgSubscribe"
+            app:layout_constraintTop_toBottomOf="@+id/imgSubscribe" />
+
+        <TextView
+            android:id="@+id/txtNumberForks"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="10"
+            app:layout_constraintEnd_toEndOf="@+id/imgForks"
+            app:layout_constraintStart_toStartOf="@+id/imgForks"
+            app:layout_constraintTop_toBottomOf="@+id/imgForks" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

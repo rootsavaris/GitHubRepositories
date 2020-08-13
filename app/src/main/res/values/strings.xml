@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">GitHubRepositories</string>
+    <string name="netDatabase">Internet + banco de dados</string>
+    <string name="networkOnly">internet somente</string>
+    <string name="repositories">Repositórios</string>
+    <string name="favorites">Favoritos</string>
+    <string name="something_went_wrong">Ops. Alguma coisa está errada!</string>
+    <string name="alertTryAgain">Tentar novamente</string>
+    <string name="repositoriesEmpty">Não existem repositórios</string>
+    <string name="seeMore">Veja mais</string>
+    <string name="repository_not_found">Repositório não encontrado</string>
+    <string name="favorites_list_empty">Não existem repositórios favoritados</string>
+
+</resources>

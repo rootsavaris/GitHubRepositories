@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/listRepositoriesFragment">
+
+    <fragment
+        android:id="@+id/listRepositoriesFragment"
+        android:name="root.savaris.githubrepositories.list.ListRepositoriesFragment"
+        android:label="ListRepositoriesFragment"
+        tools:layout="@layout/fragment_list_repositories">
+        <action
+            android:id="@+id/action_listRepositoriesFragment_to_detailRepositoryFragment"
+            app:destination="@id/detailRepositoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailRepositoryFragment"
+        android:name="root.savaris.githubrepositories.detail.DetailRepositoryFragment"
+        android:label="DetailRepositoryFragment"
+        tools:layout="@layout/fragment_detail_repository">
+        <argument
+            android:name="owner"
+            app:argType="string" />
+        <argument
+            android:name="repository"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/listRepositoriesFavoritesFragment"
+        android:name="root.savaris.githubrepositories.favorites.ListRepositoriesFavoritesFragment"
+        android:label="ListRepositoriesFavoritesFragment"
+        tools:layout="@layout/fragment_list_favorites">
+        <action
+            android:id="@+id/action_listRepositoriesFavoritesFragment_to_detailRepositoryFragment"
+            app:destination="@id/detailRepositoryFragment" />
+    </fragment>
+</navigation>
