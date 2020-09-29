@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listRepositoriesFragment"
-        android:name="root.savaris.githubrepositories.list.ListRepositoriesFragment"
+        android:name="root.savaris.githubrepositories.presentation.list.ListRepositoriesFragment"
         android:label="ListRepositoriesFragment"
         tools:layout="@layout/fragment_list_repositories">
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/detailRepositoryFragment"
-        android:name="root.savaris.githubrepositories.detail.DetailRepositoryFragment"
+        android:name="root.savaris.githubrepositories.presentation.detail.DetailRepositoryFragment"
         android:label="DetailRepositoryFragment"
         tools:layout="@layout/fragment_detail_repository">
         <argument
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/listRepositoriesFavoritesFragment"
-        android:name="root.savaris.githubrepositories.favorites.ListRepositoriesFavoritesFragment"
+        android:name="root.savaris.githubrepositories.presentation.favorites.ListRepositoriesFavoritesFragment"
         android:label="ListRepositoriesFavoritesFragment"
         tools:layout="@layout/fragment_list_favorites">
         <action

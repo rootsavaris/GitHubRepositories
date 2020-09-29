@@ -31,11 +31,6 @@
                 android:visibility="gone" />
 
             <include
-                android:id="@+id/containerEmpty"
-                layout="@layout/layout_repository_empty"
-                android:visibility="gone" />
-
-            <include
                 android:id="@+id/containerItem"
                 layout="@layout/layout_repository_detail"
                 tools:visibility="visible"

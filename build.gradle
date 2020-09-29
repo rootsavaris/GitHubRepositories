@@ -33,6 +33,7 @@ buildscript {
         def http_log_interceptor_version = '4.2.2'
         def swipe_refresh_layout_version = '1.1.0'
         def shimmer_version = '0.4.0'
+        def koin_version = '2.0.1'
 
         libraries = [
                 // Kotlin standard library
@@ -75,7 +76,13 @@ buildscript {
                 "androidx.swiperefreshlayout:swiperefreshlayout:$swipe_refresh_layout_version",
 
                 // shimmer
-                "com.facebook.shimmer:shimmer:$shimmer_version"
+                "com.facebook.shimmer:shimmer:$shimmer_version",
+
+                // koin
+                "org.koin:koin-core:$koin_version",
+                "org.koin:koin-android:$koin_version",
+                "org.koin:koin-androidx-viewmodel:$koin_version",
+                "org.koin:koin-android-viewmodel:$koin_version",
 
 
         ]

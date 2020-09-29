@@ -9,7 +9,7 @@
 
         <variable
             name="repository"
-            type="root.savaris.githubrepositories.data.RepositoryItem"/>
+            type="root.savaris.githubrepositories.domain.RepositoryItem"/>
 
         <variable
             name="clickListener"
