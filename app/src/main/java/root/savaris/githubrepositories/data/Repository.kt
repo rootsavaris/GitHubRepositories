@@ -1,5 +1,6 @@
 package root.savaris.githubrepositories.data
 
+import androidx.lifecycle.LiveData
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import root.savaris.githubrepositories.framework.network.model.ApiResponse
@@ -32,6 +33,10 @@ class Repository (private val iLocalDataSource: ILocalDataSource, private val iR
                 emit(ApiResponse.failure(apiResponse.e))
             }
         }
+    }
+
+    override fun isRepositoryFavorite(name: String, ownerLogin: String): LiveData<Int> {
+        return iLocalDataSource.isRepositoryFavorite(name, ownerLogin)
     }
 
     /*

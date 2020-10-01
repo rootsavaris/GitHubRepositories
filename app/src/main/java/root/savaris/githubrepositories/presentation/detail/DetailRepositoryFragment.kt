@@ -44,8 +44,22 @@ class DetailRepositoryFragment : Fragment() {
                         binding.shimmerContainer.visibility = View.GONE
                     }
 
-                    binding.containerItem.root.visibility = if (it.containerRecyclerVisible) View.VISIBLE else View.GONE
+                    binding.containerItem.root.visibility = if (it.containerItemVisible) View.VISIBLE else View.GONE
                     binding.containerError.root.visibility = if (it.containerErrorLayoutVisible) View.VISIBLE else View.GONE
+
+                    if (it.updateLayoutRepository){
+                        with(binding.containerItem.containerItem){
+                            this.txtLogin.text = viewModel.repositoryItem?.name ?: ""
+                            this.txtDescription.text = viewModel.repositoryItem?.description
+                            this.txtNumberForks.text = viewModel.repositoryItem?.forks_count.toString()
+                            this.txtNumberRatings.text = viewModel.repositoryItem?.stargazersCount.toString()
+                            this.txtNumberSubscribes.text = viewModel.repositoryItem?.subscribers_count.toString()
+                            this.txtNumberWatchers.text = viewModel.repositoryItem?.watchersCount.toString()
+                            Glide.with(this@DetailRepositoryFragment)
+                                .load(viewModel.repositoryItem?.ownerAvatar)
+                                .into(this.imgAvatar)
+                        }
+                    }
 
                     if (it.showSnackBar) {
                         showSnackError(it.messageError)
@@ -57,25 +71,6 @@ class DetailRepositoryFragment : Fragment() {
                         binding.swipeUserTimeline.isRefreshing = false
                     }
 
-                }
-            })
-
-            viewModel.itemRepository.observe(viewLifecycleOwner, Observer { item ->
-                item?.let {
-                    with(binding.containerItem.containerItem){
-                        this.txtLogin.text = item.name
-                        this.txtDescription.text = item.description
-                        this.txtNumberForks.text = item.forks_count.toString()
-                        this.txtNumberRatings.text = item.stargazersCount.toString()
-                        this.txtNumberSubscribes.text = item.subscribers_count.toString()
-                        this.txtNumberWatchers.text = item.watchersCount.toString()
-
-                        Glide.with(this@DetailRepositoryFragment)
-                            .load(item.ownerAvatar)
-                            .into(this.imgAvatar)
-
-                    }
-                    viewModel.loadItemUsed()
                 }
             })
 

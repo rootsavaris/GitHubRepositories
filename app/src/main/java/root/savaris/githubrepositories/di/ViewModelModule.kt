@@ -12,6 +12,6 @@ val viewModelModule = module {
         ListRepositoriesViewModel(androidApplication(), get())
     }
     viewModel { (owner : String, repository : String) ->
-        DetailRepositoryViewModel(androidApplication(), owner, repository, get())
+        DetailRepositoryViewModel(androidApplication(), owner, repository, get(), get())
     }
 }

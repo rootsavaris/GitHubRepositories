@@ -3,6 +3,7 @@ package root.savaris.githubrepositories.di
 import org.koin.dsl.module
 import root.savaris.githubrepositories.interactors.GetRepositoriesUseCase
 import root.savaris.githubrepositories.interactors.GetRepositoryUseCase
+import root.savaris.githubrepositories.interactors.IsRepositoryFavoriteUseCase
 
 val useCaseModule = module {
     factory {
@@ -10,5 +11,8 @@ val useCaseModule = module {
     }
     factory {
         GetRepositoryUseCase(get())
+    }
+    factory {
+        IsRepositoryFavoriteUseCase(get())
     }
 }

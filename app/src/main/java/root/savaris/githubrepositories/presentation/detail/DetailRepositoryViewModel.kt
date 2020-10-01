@@ -11,22 +11,20 @@ import root.savaris.githubrepositories.base.BaseViewState
 import root.savaris.githubrepositories.domain.RepositoryItem
 import root.savaris.githubrepositories.framework.network.model.ApiResponse
 import root.savaris.githubrepositories.interactors.GetRepositoryUseCase
+import root.savaris.githubrepositories.interactors.IsRepositoryFavoriteUseCase
 
 class DetailRepositoryViewModel(
     application: Application,
     private val owner: String,
     private val repository: String,
-    private val getRepositoryUseCase: GetRepositoryUseCase
+    private val getRepositoryUseCase: GetRepositoryUseCase,
+    private val isRepositoryFavoriteUseCase: IsRepositoryFavoriteUseCase
 ) : BaseViewModel<DetailRepositoryViewModel.ViewState, DetailRepositoryViewModel.Action>(application, ViewState()) {
 
-    private var repositoryItem: RepositoryItem? = null
-
-    private val _itemRepository = MutableLiveData<RepositoryItem>()
-    val itemRepository: LiveData<RepositoryItem>
-    get() = _itemRepository
+    internal var repositoryItem: RepositoryItem? = null
 
 //    val itemFavorited: LiveData<Int> = repository.isRepositoryFavorite(repositoryName, owner)
-    val itemFavorited: LiveData<Int> = MutableLiveData<Int>()
+    val itemFavorited: LiveData<Int> = isRepositoryFavoriteUseCase.execute(IsRepositoryFavoriteUseCase.Params(repository, owner))
 
     private var isRefreshing = false
 
@@ -49,7 +47,6 @@ class DetailRepositoryViewModel(
                 {
                     if (it is ApiResponse.Success){
                         repositoryItem = it.data
-                        loadItem(it.data)
                         sendAction(Action.ShowSuccess)
                     } else if (it is ApiResponse.Failure){
                         val messageError = it.e.message ?: ""
@@ -65,14 +62,6 @@ class DetailRepositoryViewModel(
             isRefreshing = false
         }
 
-    }
-
-    private fun loadItem(item: RepositoryItem) {
-        _itemRepository.value = item
-    }
-
-    fun loadItemUsed() {
-        _itemRepository.value = null
     }
 
     private fun initialLoad() {
@@ -102,7 +91,8 @@ class DetailRepositoryViewModel(
         )
         is Action.ShowSuccess -> ViewState(
             isLoading = false,
-            containerRecyclerVisible = true
+            containerItemVisible = true,
+            updateLayoutRepository = true
         )
         is Action.ShowFail -> ViewState(
             isLoading = false,
@@ -111,7 +101,7 @@ class DetailRepositoryViewModel(
         )
         is Action.ShowFailWithSnackBar -> ViewState(
             isLoading = false,
-            containerRecyclerVisible = true,
+            containerItemVisible = true,
             messageError = viewAction.messageError,
             showSnackBar = true
         )
@@ -120,11 +110,12 @@ class DetailRepositoryViewModel(
 
     data class ViewState(
         val isLoading: Boolean = true,
-        val containerRecyclerVisible: Boolean = false,
+        val containerItemVisible: Boolean = false,
         val containerEmptyLayoutVisible: Boolean = false,
         val containerErrorLayoutVisible: Boolean = false,
         val messageError: String = "",
-        val showSnackBar: Boolean = false
+        val showSnackBar: Boolean = false,
+        val updateLayoutRepository: Boolean = false
     ) : BaseViewState
 
     sealed class Action : BaseAction {

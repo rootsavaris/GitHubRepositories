@@ -2,6 +2,7 @@ package root.savaris.githubrepositories.utils
 
 import android.app.Application
 import android.content.Context
+import androidx.lifecycle.LiveData
 import kotlinx.coroutines.flow.Flow
 import root.savaris.githubrepositories.data.ILocalDataSource
 import root.savaris.githubrepositories.data.IRemoteDataSource
@@ -63,8 +64,16 @@ class Repository2: IRepository{
     ): Flow<ApiResponse<RepositoryItem>> {
         TODO("Not yet implemented")
     }
+
+    override fun isRepositoryFavorite(name: String, ownerLogin: String): LiveData<Int> {
+        TODO("Not yet implemented")
+    }
 }
-class Local2: ILocalDataSource{}
+class Local2: ILocalDataSource{
+    override fun isRepositoryFavorite(name: String, ownerLogin: String): LiveData<Int> {
+        TODO("Not yet implemented")
+    }
+}
 class Remote2: IRemoteDataSource{
     override suspend fun getRepositories(page: Int): ApiResponse<RepositoryListNetwork> {
         TODO("Not yet implemented")

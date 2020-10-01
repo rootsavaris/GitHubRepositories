@@ -21,7 +21,7 @@ interface RepositoriesServiceApi {
                          @Query("page") page: Int? = PAGE_PARAM_API): RepositoryListNetwork
 
     @GET("repos/{owner}/{repository}")
-    fun getRepository(@Path("owner") owner: String,
+    suspend fun getRepository(@Path("owner") owner: String,
                       @Path("repository") repository: String): RepositoryNetwork
 
 }
